@@ -14,4 +14,9 @@ class Post extends Model
     public function comments() {
         return $this->hasMany("App\Comment");
     }
+
+//    public function latest($column = 'created_at')
+//    {
+//        return $this->orderBy($column, 'desc');
+//    }
 }

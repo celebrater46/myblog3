@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -9,14 +10,14 @@ class PostController extends Controller
 {
     //
     public function index() {
-        echo "Hello World";
-        $posts = Post::latest()->get(); // 上と同じ命令
+//        echo "Hello World";
+//        $posts = Post::latest()->get(); // 上と同じ命令
+        $posts = Post::all(); // 上と同じ命令
         return view('posts.index')->with('posts', $posts);
     }
 
     public function show(Post $post) {
         return view('posts.show')->with('post', $post); // -> resources/views/posts/show.blade.php
-
     }
 
     public function create() {

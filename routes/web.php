@@ -33,9 +33,9 @@ use App\Http\Controllers\CommentController;
 //Route::delete("/posts/{post}/comments/{comment}", "CommentController@destroy");
 
 Route::get('/', [PostController::class, 'index']);
-Route::get('/posts/{post}', [PostController::class, 'create'])->where("post", "[0-9]+");
+Route::get('/posts/{post}', [PostController::class, 'show'])->where("post", "[0-9]+");
 Route::get('/posts/create', [PostController::class, 'create']);
-Route::post("/posts", [PostController::class, 'create']);
+Route::post("/posts", [PostController::class, 'store']);
 Route::get("/posts/{post}/edit", [PostController::class, 'edit']);
 Route::patch("/posts/{post}", [PostController::class, 'update']);
 Route::delete("/posts/{post}", [PostController::class, 'destroy']);
