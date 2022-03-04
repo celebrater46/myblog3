@@ -15,11 +15,12 @@
         @forelse ($post->comments as $comment)
             <li>
                 {{ $comment->body }}
-                <a href="#" class="del" data-id="{{ $comment->id }}">[x]</a>
+{{--                <a href="#" class="del" data-id="{{ $comment->id }}">[x]</a>--}}
 {{--                <form method="post" action="{{ action("CommentController@destroy", [$post, $comment]) }}" id="form_{{ $comment->id }}">--}}
                 <form method="post" action="{{ action([CommentController::class, 'destroy'], [$post, $comment]) }}" id="form_{{ $comment->id }}">
                     {{ csrf_field() }}
-                    {{ method_field("delete") }}
+{{--                    {{ method_field("delete") }}--}}
+                    <input type="submit" value="削除やで">
                 </form>
             </li>
         @empty

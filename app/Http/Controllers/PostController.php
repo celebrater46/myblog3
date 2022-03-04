@@ -44,6 +44,7 @@ class PostController extends Controller
     }
 
     public function destroy(Post $post) {
+        var_dump($post);
         $post->delete();
         return redirect("/");
     }
