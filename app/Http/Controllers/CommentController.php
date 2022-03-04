@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -13,7 +15,8 @@ class CommentController extends Controller
         ]);
         $comment = new Comment(["body" => $request->body]);
         $post->comments()->save($comment);
-        return redirect()->action("PostController@show", $post); // 別の場所にリダイレクトする際の書き方
+//        return redirect()->action("PostController@show", $post); // 別の場所にリダイレクトする際の書き方
+        return redirect()->action([PostController::class, 'show'], $post); // 別の場所にリダイレクトする際の書き方
     }
 
     public function destroy(Post $post, Comment $comment) {
