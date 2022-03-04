@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     //
     public function index() {
+        echo "Hello World";
         $posts = Post::latest()->get(); // 上と同じ命令
         return view('posts.index')->with('posts', $posts);
     }

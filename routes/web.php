@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,17 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 
 //Route::get('/', 'PostController@index');
-//Route::get('/posts/{post}', 'PostController@show')->where("post", "[0-9]+");
-//Route::get('/posts/create', 'PostController@create');
-//Route::post("/posts", "PostController@store");
-//Route::get("/posts/{post}/edit", "PostController@edit");
-//Route::patch("/posts/{post}", "PostController@update");
-//Route::delete("/posts/{post}", "PostController@destroy");
-//Route::post("/posts/{post}/comments", "CommentController@store");
-//Route::delete("/posts/{post}/comments/{comment}", "CommentController@destroy");
+//Route::get('/', 'App\Http\Controllers\PostController@index');
+Route::get('/', [PostController::class, 'index']);
+Route::get('/posts/{post}', 'PostController@show')->where("post", "[0-9]+");
+Route::get('/posts/create', 'PostController@create');
+Route::post("/posts", "PostController@store");
+Route::get("/posts/{post}/edit", "PostController@edit");
+Route::patch("/posts/{post}", "PostController@update");
+Route::delete("/posts/{post}", "PostController@destroy");
+Route::post("/posts/{post}/comments", "CommentController@store");
+Route::delete("/posts/{post}/comments/{comment}", "CommentController@destroy");
