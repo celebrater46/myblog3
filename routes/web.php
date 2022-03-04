@@ -21,7 +21,7 @@ use App\Http\Controllers\PostController;
 
 //Route::get('/', 'PostController@index');
 //Route::get('/', 'App\Http\Controllers\PostController@index');
-Route::get('/', [PostController::class, 'index']);
+//Route::get('/', [PostController::class, 'index']);
 Route::get('/posts/{post}', 'PostController@show')->where("post", "[0-9]+");
 Route::get('/posts/create', 'PostController@create');
 Route::post("/posts", "PostController@store");
@@ -30,3 +30,7 @@ Route::patch("/posts/{post}", "PostController@update");
 Route::delete("/posts/{post}", "PostController@destroy");
 Route::post("/posts/{post}/comments", "CommentController@store");
 Route::delete("/posts/{post}/comments/{comment}", "CommentController@destroy");
+
+Route::get('/', [PostController::class, 'index']);
+
+Route::get('/posts/create', [PostController::class, 'create']);
